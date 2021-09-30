@@ -47,8 +47,8 @@ function checkPalindrom(date) {
   }
 }
 var date = {
-  day: 12,
-  month: 02,
-  year: 2021,
+  day: 11,
+  month: 06,
+  year: 1994,
 };
 console.log(checkPalindrom(date));
