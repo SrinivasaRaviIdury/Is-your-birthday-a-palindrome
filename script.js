@@ -79,7 +79,8 @@ function getNextDate(date) {
   }
   day = day < 10 ? '0' + String(day) : String(day);
   month = month < 10 ? '0' + String(month) : String(month);
-  return { day, month, year: String(year) };
+  year = String(year);
+  return { day, month, year };
 }
 
 function isDatePalindrom(date) {
@@ -92,20 +93,21 @@ function isDatePalindrom(date) {
 }
 
 function getNextPalindromDate(date) {
-  let cnt = 0;
-  while (!isDatePalindrom(date)) {
-    console.log(date);
-    cnt++;
-    date = getNextDate(date);
+  let nextDate = getNextDate(date);
+  let cnt = 1;
+  while (1) {
+    if (isDatePalindrom(nextDate)) {
+      return [nextDate, cnt];
+    } else {
+      cnt++;
+      nextDate = getNextDate(nextDate);
+    }
   }
-  return [date, cnt];
 }
 
-const date = {
-  day: '',
-  month: '',
-  year: '',
-};
+const date = {};
+
+// console.log(isDatePalindrom(date));
 /*element selector*/
 const bdayInput = document.querySelector('#bday-input');
 const showBtn = document.querySelector('#show-btn');
